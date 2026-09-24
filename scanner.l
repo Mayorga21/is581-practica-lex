@@ -23,6 +23,7 @@ int lexical_errors = 0;
 "("                         { show_token("LPAREN", yytext); }
 ")"                         { show_token("RPAREN", yytext); }
 ";"                         { show_token("SEMICOLON", yytext); }
+"//"[^\n]*                  { /* Ignore comment. */ }
 [ \t\r\n]+                  { /* Ignore whitespace. */ }
 .                           { show_token("ERROR", yytext); lexical_errors++; }
 %%
