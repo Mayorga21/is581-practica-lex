@@ -6,13 +6,14 @@ int lexical_errors = 0;
 %}
 
 %%
-[a-zA-Z_][a-zA-Z0-9_]*       { show_token("IDENTIFIER", yytext); }
+
 "let"                       { show_token("LET", yytext); }
 "print"                     { show_token("PRINT", yytext); }
 "if"                        { show_token("IF", yytext); }
 [0-9]+"."[0-9]+             { show_token("DECIMAL", yytext); }
 [0-9]+                      { show_token("NUMBER", yytext); }
-"="                         { show_token("ASSIGN", yytext); }
+[a-zA-Z_][a-zA-Z0-9_]*       { show_token("IDENTIFIER", yytext); }
+\"[^"\\\n]*\"               { show_token("STRING", yytext); }
 "=="                        { show_token("EQUAL_EQUAL", yytext); }
 ">="                        { show_token("GREATER_EQUAL", yytext); }
 "="                         { show_token("ASSIGN", yytext); }
