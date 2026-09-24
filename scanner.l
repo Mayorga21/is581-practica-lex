@@ -7,7 +7,6 @@ int current_line = 1;
 %}
 
 %%
-
 "let"                       { show_token("LET", yytext); }
 "print"                     { show_token("PRINT", yytext); }
 "if"                        { show_token("IF", yytext); }
@@ -26,7 +25,7 @@ int current_line = 1;
 ")"                         { show_token("RPAREN", yytext); }
 ";"                         { show_token("SEMICOLON", yytext); }
 "//"[^\n]*                  { /* Ignore comment. */ }
-[ \t\r\n]+                  { /* Ignore whitespace. */ }
+[ \t\r]+                    { /* Ignore whitespace except newline. */ }
 \n                          { current_line++; }
 .                           { printf("Linea %d: caracter inesperado %s\n", current_line, yytext); lexical_errors++; }
 %%
