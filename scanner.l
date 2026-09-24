@@ -3,6 +3,7 @@
 #include <stdio.h>
 void show_token(const char *kind, const char *text);
 int lexical_errors = 0;
+int current_line = 1;
 %}
 
 %%
@@ -26,5 +27,6 @@ int lexical_errors = 0;
 ";"                         { show_token("SEMICOLON", yytext); }
 "//"[^\n]*                  { /* Ignore comment. */ }
 [ \t\r\n]+                  { /* Ignore whitespace. */ }
-.                           { show_token("ERROR", yytext); lexical_errors++; }
+\n                          { current_line++; }
+.                           { printf("Linea %d: caracter inesperado %s\n", current_line, yytext); lexical_errors++; }
 %%
