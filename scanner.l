@@ -10,6 +10,7 @@ int lexical_errors = 0;
 "let"                       { show_token("LET", yytext); }
 "print"                     { show_token("PRINT", yytext); }
 "if"                        { show_token("IF", yytext); }
+[0-9]+"."[0-9]+             { show_token("DECIMAL", yytext); }
 [0-9]+                      { show_token("NUMBER", yytext); }
 "="                         { show_token("ASSIGN", yytext); }
 "=="                        { show_token("EQUAL_EQUAL", yytext); }
