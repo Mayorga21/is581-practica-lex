@@ -12,6 +12,10 @@ int lexical_errors = 0;
 "if"                        { show_token("IF", yytext); }
 [0-9]+                      { show_token("NUMBER", yytext); }
 "="                         { show_token("ASSIGN", yytext); }
+"=="                        { show_token("EQUAL_EQUAL", yytext); }
+">="                        { show_token("GREATER_EQUAL", yytext); }
+"="                         { show_token("ASSIGN", yytext); }
+">"                         { show_token("GREATER", yytext); }
 "+"                         { show_token("PLUS", yytext); }
 "-"                         { show_token("MINUS", yytext); }
 "*"                         { show_token("STAR", yytext); }
