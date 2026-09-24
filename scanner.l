@@ -13,6 +13,10 @@ int lexical_errors = 0;
 [0-9]+                      { show_token("NUMBER", yytext); }
 "="                         { show_token("ASSIGN", yytext); }
 "+"                         { show_token("PLUS", yytext); }
+"-"                         { show_token("MINUS", yytext); }
+"*"                         { show_token("STAR", yytext); }
+"("                         { show_token("LPAREN", yytext); }
+")"                         { show_token("RPAREN", yytext); }
 ";"                         { show_token("SEMICOLON", yytext); }
 [ \t\r\n]+                  { /* Ignore whitespace. */ }
 .                           { show_token("ERROR", yytext); lexical_errors++; }
