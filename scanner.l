@@ -1,5 +1,6 @@
 %option noyywrap
 %{
+#include <stdio.h>
 void show_token(const char *kind, const char *text);
 int lexical_errors = 0;
 %}
